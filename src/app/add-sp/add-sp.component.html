@@ -1,0 +1,47 @@
+<form [formGroup] ="insertSPFrm" (ngSubmit)="onSubmitFirebase()">
+
+    <div class="form-group">
+        <label for="id">ID SP: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter ID" 
+        formControlName="id" >
+        <div *ngIf="insertSPFrm.controls.id.invalid && (insertSPFrm.controls.id.dirty ||insertSPFrm.controls.id.touched)">
+            <small *ngIf="insertSPFrm.controls.id.errors.required" class="text-danger">ID is required.</small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="ten">Ten SP: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter NAME" 
+        formControlName="ten" >
+        <div *ngIf="insertSPFrm.controls.ten.invalid && (insertSPFrm.controls.ten.dirty ||insertSPFrm.controls.ten.touched)">
+            <small *ngIf="insertSPFrm.controls.ten.errors.required" class="text-danger">Ten is required.</small>
+        </div>
+    </div>  
+
+    <div class="form-group">
+        <label for="gia">Gia SP: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter gia" 
+        formControlName="gia" >
+        <div *ngIf="insertSPFrm.controls.gia.invalid && (insertSPFrm.controls.gia.dirty ||insertSPFrm.controls.gia.touched)">
+            <small *ngIf="insertSPFrm.controls.gia.errors.required" class="text-danger">Gia is required.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mota">Mo Ta </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter mota" 
+        formControlName="mota" >
+        <div *ngIf="insertSPFrm.controls.mota.invalid && (insertSPFrm.controls.mota.dirty ||insertSPFrm.controls.mota.touched)">
+            <small *ngIf="insertSPFrm.controls.mota.errors.required" class="text-danger">mota is required.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ngaysanxuat">Ngay San Xuat </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter NSX" 
+        formControlName="ngaysanxuat" >
+        <div *ngIf="insertSPFrm.controls.ngaysanxuat.invalid && (insertSPFrm.controls.ngaysanxuat.dirty ||insertSPFrm.controls.ngaysanxuat.touched)">
+            <small *ngIf="insertSPFrm.controls.ngaysanxuat.errors.required" class="text-danger">NSX is required.</small>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled] = "!insertSPFrm.valid"> add new San Pham </button>
+    
+</form>

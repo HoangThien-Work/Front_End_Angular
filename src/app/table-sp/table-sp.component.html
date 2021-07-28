@@ -1,0 +1,96 @@
+
+ <p>Add new SP:
+    <a class="btn btn-success btn-circle" routerLink="/admin/addnewSP">
+       <i class="fas fa-plus"></i>
+   </a>
+</p>  
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Of SAN PHAM</h6>
+    </div>
+    
+    <div class="card-header py-3">
+        <input type="text" name="" id="" (change)="Search($event)" placeholder="Search">
+    </div>
+
+    <div class="card-header py-3">
+        <label for="Filter_SP">Filter: Type --  </label> 
+        <select id="Filter_SP" (change)="Filter($event)" >
+          <option value=""> none </option>
+          <option value="Thuốc"> Thuốc </option>
+          <option value="Nước ngọt">Nước </option>
+          <option value="Thực Phẩm">Thực phẩm</option>
+        </select>
+
+    
+
+     <div style="float: right;">
+        <label for="Filter_SP">Filter: Price --  </label> 
+        <select id="Filter_gia" (change)="Filtergia($event)"  >
+            <option value=""> none </option>
+            <option value="5000"> 5000 </option>
+            <option value="10000"> 10000 </option>
+            <option value="15000"> 15000 </option>
+          </select>
+     </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                   
+                    <tr>
+                        <th>Mat Hang ID in DB</th>
+                        <th>Ma SP</th>
+                        <th>Ten SP</th>
+                        <th>Gia</th>
+                        <th>Ngay San Xuat</th>
+                        <th>Mo Ta</th>
+                        <th>anh</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mat Hang ID in DB</th>
+                        <th>Ma SP</th>
+                        <th>Ten SP</th>
+                        <th>Gia</th>
+                        <th>Ngay San Xuat</th>
+                        <th>Mo Ta</th>
+                        <th>anh</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                  
+                    <tr *ngFor="let item of mat_hangs | async |paginate: config">
+                        <td>{{item.MatHang_ID}}</td>
+                        <td>{{item.Id}}</td>
+                        <td>{{item.Ten}}</td>
+                        <td>{{item.Gia}}</td>
+                        <td>{{item.NgaySanXuat}}</td>
+                        <td>{{item.MoTa}}</td>
+                        <td> <img src="{{item.hinhanh}}" alt=""  height=200 width=200> </td>
+                        <td>
+                            <a class="btn btn-danger btn-circle"
+                            (click)="delete(item.MatHang_ID)"
+                            >
+                                <i class="fas fa-trash"></i>
+                            </a>      
+                        </td>
+                        <td>
+                            <a class="btn btn-info btn-circle" routerLink="/admin/update/{{item.MatHang_ID}}">
+                                <i class="fas fa-sync-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>

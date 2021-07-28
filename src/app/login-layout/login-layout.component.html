@@ -1,0 +1,81 @@
+
+<!-- login layout begin here -->
+<div class="container" class="bg-gradient-primary" >
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                </div>
+                                <form class="user">
+                 <!-- đưa form bên login vào -->
+                <form [formGroup] ="LoginFrm" (ngSubmit)="tryFirebaseAccount()">
+                    <div class="form-group">
+                        <label for="email">User Name: </label>
+                        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter Your User Name" 
+                        formControlName="email" >
+                        <div *ngIf="LoginFrm.controls.email.invalid && (LoginFrm.controls.email.dirty ||LoginFrm.controls.email.touched)">
+                        <small *ngIf="LoginFrm.controls.email.errors.required" class="text-danger">email is required.</small>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">PassWord: </label>    
+                        <input type="password" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter PassWord" 
+                        formControlName="password" >
+                        <div *ngIf="LoginFrm.controls.password.invalid && (LoginFrm.controls.password.dirty ||LoginFrm.controls.password.touched)">
+                        <small *ngIf="LoginFrm.controls.password.errors.required" class="text-danger">password is required.</small>
+                    </div>
+                    </div>  
+    
+                    <div class="text-center">
+                        <button  type="submit" class="btn btn-danger btn-block" [disabled] = "!LoginFrm.valid">Login with UserName</button>
+                    </div>
+    
+                 </form>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Remember
+                                                Me</label>
+                                        </div>
+                                    </div>
+                            
+                                    <hr>
+                                    <!-- dang nhap bang gmail  -->
+                                    <a  (click)="tryGoogleLogin()" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> Login with Google
+                                    </a>
+
+                                    <a (click)="tryFBLogin()" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                    </a>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" >Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <button  type="button" class="btn btn-danger btn-block"  routerLink="/signup" >Create A new Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

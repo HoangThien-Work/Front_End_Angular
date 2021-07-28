@@ -1,0 +1,41 @@
+
+<form [formGroup] ="insertFrm" (ngSubmit)="onSubmitNode()">
+
+    <div class="form-group">
+        <label for="id">ID SP: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter ID" 
+        formControlName="id" >
+        <div *ngIf="insertFrm.controls.id.invalid && (insertFrm.controls.id.dirty ||insertFrm.controls.id.touched)">
+            <small *ngIf="insertFrm.controls.id.errors.required" class="text-danger">ID is required.</small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name">staff name: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter NAME" 
+        formControlName="name" >
+        <div *ngIf="insertFrm.controls.name.invalid && (insertFrm.controls.name.dirty ||insertFrm.controls.name.touched)">
+            <small *ngIf="insertFrm.controls.name.errors.required" class="text-danger">name is required.</small>
+        </div>
+    </div>  
+
+    <div class="form-group">
+        <label for="age">staff age: </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter age" 
+        formControlName="age" >
+        <div *ngIf="insertFrm.controls.age.invalid && (insertFrm.controls.age.dirty ||insertFrm.controls.age.touched)">
+            <small *ngIf="insertFrm.controls.age.errors.required" class="text-danger">age is required.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="role">Role </label>
+        <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter role" 
+        formControlName="role" >
+        <div *ngIf="insertFrm.controls.role.invalid && (insertFrm.controls.role.dirty ||insertFrm.controls.role.touched)">
+            <small *ngIf="insertFrm.controls.role.errors.required" class="text-danger">role is required.</small>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled] = "!insertFrm.valid"> add new Staff </button>
+    
+</form>

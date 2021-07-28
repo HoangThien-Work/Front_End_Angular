@@ -1,0 +1,43 @@
+<h1 class="header" style="margin-left: 32%;">Login with UserName</h1>
+
+<form [formGroup] ="LoginFrm" (ngSubmit)="tryFirebaseAccount()">
+
+<div class="form-group">
+    <label for="email">User Name: </label>
+    <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter Your User Name" 
+    formControlName="email" >
+    <div *ngIf="LoginFrm.controls.email.invalid && (LoginFrm.controls.email.dirty ||LoginFrm.controls.email.touched)">
+      <small *ngIf="LoginFrm.controls.email.errors.required" class="text-danger">email is required.</small>
+  </div>
+</div>
+
+<div class="form-group">
+    <label for="password">PassWord: </label>    
+    <input type="password" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter PassWord" 
+    formControlName="password" >
+    <div *ngIf="LoginFrm.controls.password.invalid && (LoginFrm.controls.password.dirty ||LoginFrm.controls.password.touched)">
+      <small *ngIf="LoginFrm.controls.password.errors.required" class="text-danger">password is required.</small>
+  </div>
+</div>  
+
+<div class="col-md-4 col-md-offset-4">
+    <button style="margin-left: 365px; margin-top: 10%;" type="submit" class="btn btn-danger btn-block" [disabled] = "!LoginFrm.valid">Login with UserName</button>
+</div>
+
+</form>
+
+<div class="col-md-4 col-md-offset-4">
+  <P style="margin-left: 500px; margin-top: 5%; margin-bottom: 5%">Or</P>
+  <button style="margin-left: 365px; margin-top: 10%;" type="button" class="btn btn-danger btn-block"  routerLink="/signup" >Create A new Account</button>
+</div>
+
+
+
+   
+
+<h1 class="header" style="margin-left: 35%;">Login with Gmail</h1>
+	  <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+		  <button style="margin-left: 365px; margin-top: 10%;" type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Login with Google</button>
+		</div>
+	  </div>

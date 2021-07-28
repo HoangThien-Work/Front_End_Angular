@@ -1,0 +1,11 @@
+<h1>Staff List</h1>
+            <ul>
+                <li *ngFor="let staff of stafflist | async">
+                 -Ten: {{staff.name}} - Id : {{staff.id}} - Age: {{staff.age}} - Role: {{staff.role}} 
+                 <button  (click)="delete(staff.id)">delete staff</button> 
+                  --- 
+                 <button  (click)="update(staff.id)">update staff</button> 
+                </li>
+              </ul>
+
+             

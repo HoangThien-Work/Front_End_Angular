@@ -1,0 +1,47 @@
+<form [formGroup] ="insertFrm" (ngSubmit)="updateFirebase()">
+
+    <div class="form-group">
+        <label for="id">ID SP: </label>
+        <input type="text" [(ngModel)]='MathangItems.Id' class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter ID" 
+        formControlName="id" >
+        <div *ngIf="insertFrm.controls.id.invalid && (insertFrm.controls.id.dirty ||insertFrm.controls.id.touched)">
+            <small *ngIf="insertFrm.controls.id.errors.required" class="text-danger">ID is required.</small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="ten">Ten SP: </label>
+        <input type="text"  [(ngModel)]='MathangItems.Ten'  class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter NAME" 
+        formControlName="ten" >
+        <div *ngIf="insertFrm.controls.ten.invalid && (insertFrm.controls.ten.dirty ||insertFrm.controls.ten.touched)">
+            <small *ngIf="insertFrm.controls.ten.errors.required" class="text-danger">Ten is required.</small>
+        </div>
+    </div>  
+
+    <div class="form-group">
+        <label for="gia">Gia SP: </label>
+        <input type="text" [(ngModel)]='MathangItems.Gia' class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter gia" 
+        formControlName="gia" >
+        <div *ngIf="insertFrm.controls.gia.invalid && (insertFrm.controls.gia.dirty ||insertFrm.controls.gia.touched)">
+            <small *ngIf="insertFrm.controls.gia.errors.required" class="text-danger">Gia is required.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mota">Mo Ta </label>
+        <input type="text" [(ngModel)]='MathangItems.MoTa'  class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter mota" 
+        formControlName="mota" >
+        <div *ngIf="insertFrm.controls.mota.invalid && (insertFrm.controls.mota.dirty ||insertFrm.controls.mota.touched)">
+            <small *ngIf="insertFrm.controls.mota.errors.required" class="text-danger">mota is required.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ngaysanxuat">Ngay San Xuat </label>
+        <input type="text" [(ngModel)]='MathangItems.NgaySanXuat' class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter NSX" 
+        formControlName="ngaysanxuat" >
+        <div *ngIf="insertFrm.controls.ngaysanxuat.invalid && (insertFrm.controls.ngaysanxuat.dirty ||insertFrm.controls.ngaysanxuat.touched)">
+            <small *ngIf="insertFrm.controls.ngaysanxuat.errors.required" class="text-danger">NSX is required.</small>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled] = "!insertFrm.valid"> Update SP </button>
+    
+</form>
